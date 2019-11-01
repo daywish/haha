@@ -1,0 +1,26 @@
+<script>
+    let k = parseInt(prompt("Enter the K"));
+    function simple(x) {
+        let count = 0;
+        for (let t = 1; t < x ; t++) {
+            if (x%t===0)
+                count++;
+        }
+        return count < 2;
+    }
+    let arr = [];
+    for (let h = 2; h < k*k*10; h++) {
+        if(simple(h))
+            arr.push(h);
+    }
+        let m = 1;
+        let arr_k = [];
+        for (let i = 0; i < 10;  i++) {
+            for (let j = i; j <= i+k-1; j++) {
+                m *= arr[j];
+            }
+            arr_k[i] = m;
+            m = 1;
+        }
+    document.write(arr_k.toString());
+</script>
